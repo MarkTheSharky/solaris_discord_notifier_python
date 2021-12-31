@@ -23,6 +23,14 @@ client = discord.Client()
 @client.event
 async def on_ready():
   print(f'{client.user.name} is connected to the server.')
+
+# Check to see if the game has started and send a welcome message
+  if db[GAME_ID]["current_tick"] == 0:
+    print("Ran 'if current_tick == 0:'")
+    channel = client.get_channel(866734536052965406)
+    await channel.send(functions.send_starting_message())
+    db[GAME_ID]["current_tick"] = 1
+
   post_when_new_turn.start(GAME_ID)
 
 
@@ -31,17 +39,10 @@ async def on_ready():
 async def post_when_new_turn(game_id):
   new_tick = functions.get_galaxy_data(game_id)['state']['tick']
   current_tick = db[GAME_ID]["current_tick"]
-  print(current_tick)
-
-# Check to see if the game has started and send a welcome message
-  if current_tick == 0:
-    print("Ran 'if current_tick == 0:'")
-    channel = client.get_channel(DISCORD_CHANNEL_ID)
-    await channel.send(functions.send_starting_message())
-    db[GAME_ID]["current_tick"] = 1
+  print("Current tick is: " + str(current_tick))
 
 # # Check saved game state with current game state and send message if theres a new turn
-  elif new_tick > current_tick:
+  if new_tick > current_tick:
     print("Ran 'elif new_tick > current_tick:'")
     db[GAME_ID]["current_tick"] = new_tick
     channel = client.get_channel(866734536052965406)
