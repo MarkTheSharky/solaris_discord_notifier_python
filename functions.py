@@ -21,3 +21,6 @@ def check_if_game_database_exists_or_set_it(game_id):
 
 def send_starting_message():
   return 'This is a starting message'
+
+# def delete_game_data(game_id):
+#   del db[game_id]
