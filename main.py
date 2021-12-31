@@ -41,7 +41,7 @@ async def post_when_new_turn(game_id):
   current_tick = db[GAME_ID]["current_tick"]
   print("Current tick is: " + str(current_tick))
 
-# # Check saved game state with current game state and send message if theres a new turn
+# Check saved game state with current game state and send message if theres a new turn
   if new_tick > current_tick:
     print("Ran 'elif new_tick > current_tick:'")
     db[GAME_ID]["current_tick"] = new_tick
