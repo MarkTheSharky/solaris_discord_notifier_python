@@ -7,7 +7,7 @@ from replit import db
 
 # Set enviroment variables
 TOKEN = os.environ['TOKEN']
-GUILD = os.environ['GUILD']
+GUILD = os.environ['DISCORD_GUILD']
 GAME_ID = os.environ['GAME_ID']
 DISCORD_CHANNEL_ID = 866734536052965406
 
