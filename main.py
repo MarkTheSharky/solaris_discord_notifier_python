@@ -1,7 +1,7 @@
 import functions
 import os
 import discord
-from discord.ext import commands, tasks
+from discord.ext import tasks
 from keep_alive import keep_alive
 from replit import db
 
