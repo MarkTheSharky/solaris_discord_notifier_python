@@ -1,0 +1,3 @@
+1 - handle end game deletion of database entries
+
+2 - move start message out of loop function
