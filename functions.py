@@ -9,7 +9,7 @@ def get_game_state(game_id):
 def set_starting_game_data(game_id):
   payload = get_game_state(game_id)
   db[game_id] = {
-      "current_tick": payload["tick"]
+      "current_tick": payload["state"]["tick"]
   }
 
 def check_if_game_database_exists_or_set_it(game_id):
