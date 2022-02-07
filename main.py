@@ -5,7 +5,7 @@ from discord.ext import tasks
 from keep_alive import keep_alive
 from replit import db
 
-# Set enviroment variables
+# Set environment variables
 TOKEN = os.environ['TOKEN']
 GUILD = os.environ['DISCORD_GUILD']
 DISCORD_CHANNEL_ID = os.environ['DISCORD_CHANNEL_ID']
@@ -35,9 +35,9 @@ async def on_ready():
 # Assign functions to check for game status and send message on Discord
 @tasks.loop(minutes=5)
 async def post_when_new_turn(game_id):
-  new_tick = functions.get_galaxy_data(game_id)['state']['tick']
+  new_tick = functions.get_game_state(game_id)['tick']
   current_tick = db[GAME_ID]["current_tick"]
-  print("Current tick is: " + str(current_tick))
+  # print("Current tick is: " + str(current_tick))
 
 # Check saved game state with current game state and send message if theres a new turn
   if new_tick > current_tick:
