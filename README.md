@@ -1,4 +1,4 @@
-# solaris_discord_notifier_python
+# Solaris Discord Notifier
 A notification bot for Discord to be used with the 4X game Solaris.
 
 Can be forked and run from https://replit.com/@MarkTheShark/solarisdiscordnotifier
